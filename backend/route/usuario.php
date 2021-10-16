@@ -3,7 +3,7 @@
 
 //use config\database; 
 //use controller\courseController;
-include_once('../controller/courseController.php');
+include_once('../controller/usuarioController.php');
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -15,7 +15,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = explode( '/', $uri );
 
-if ($uri[4] !== 'course.php') {
+if ($uri[4] !== 'usuario.php') {
     header("HTTP/1.1 404 Not Found");
     exit();
 }
@@ -25,7 +25,7 @@ $getId = htmlspecialchars($_GET["id"]);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-$controller = new courseController();
+$controller = new usuarioController();
 
 switch ($requestMethod) {
 	case 'GET':

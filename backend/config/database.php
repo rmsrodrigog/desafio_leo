@@ -1,5 +1,5 @@
 <?php 
-    //namespace config;
+    //namespace config; 
 
     class database {
         private $host = "127.0.0.1";

@@ -1,18 +1,20 @@
 <?php
     //namespace service;
 
-    class courseService{
+    class usuarioService{
 
         // Connection 
         private $conn;
 
         // Table
-        private $db_table = "curso";
+        private $db_table = "usuario";
 
         // Columns
         public $id;
-        public $nome;
-        public $info;
+        public $name;
+        public $email;
+        public $usuario;
+        public $senha;
 
         // Db connection
         public function __construct($db){
@@ -21,7 +23,7 @@
 
         // GET ALL
         public function getAll(){
-            $sqlQuery = "SELECT id, nome, info FROM " . $this->db_table . "";
+            $sqlQuery = "SELECT id, nome, email, usuario, senha FROM " . $this->db_table . "";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             $itemCount = $stmt->rowCount();
@@ -36,7 +38,9 @@
                     $e = array(
                         "id" => $id,
                         "nome" => $nome,
-                        "info" => $info
+                        "email" => $email,
+                        "usuario" => $usuario,
+                        "senha" => $senha
                     );
 
                     array_push($courseArr["body"], $e);
@@ -49,7 +53,7 @@
 
         // SHOW
         public function retrive($id){
-            $sqlQuery = "SELECT nome, info
+            $sqlQuery = "SELECT id, nome, email, usuario, senha
                         FROM ". $this->db_table ."
                         WHERE id = ?
                         LIMIT 0,1";
@@ -64,7 +68,9 @@
                 $courseArr["body"] = array();
                 $e = array(
                     "nome" => $dataRow['nome'], 
-                    "info" => $dataRow['info']
+                    "email" => $dataRow['email'],
+                    "usuario" => $dataRow['usuario'],
+                    "senha" => $dataRow['senha']
                 ); 
                 array_push($courseArr["body"], $e);
                 return $courseArr;
@@ -79,17 +85,23 @@
                             ". $this->db_table ."
                         SET
                             nome = :nome, 
-                            info = :info";
+                            email = :email, 
+                            usuario = :usuario, 
+                            senha = :senha";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
             // sanitize
             $this->nome=htmlspecialchars(strip_tags($data->nome));
-            $this->info=htmlspecialchars(strip_tags($data->info));
+            $this->email=htmlspecialchars(strip_tags($data->email));
+            $this->usuario=htmlspecialchars(strip_tags($data->usuario));
+            $this->senha=htmlspecialchars(strip_tags($data->senha));
             
             // bind data
             $stmt->bindParam(":nome", $this->nome);
-            $stmt->bindParam(":info", $this->info);
+            $stmt->bindParam(":email", $this->email);
+            $stmt->bindParam(":usuario", $this->usuario);
+            $stmt->bindParam(":senha", $this->senha);
         
             if($stmt->execute()){
                return array("mensagem" => "Criado com sucesso;");
@@ -103,19 +115,25 @@
                         ". $this->db_table ."
                     SET
                         nome = :nome, 
-                        info = :info
+                        email = :email, 
+                        usuario = :usuario, 
+                        senha = :senha
                     WHERE 
                         id = :id";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
             $this->nome=htmlspecialchars(strip_tags($data->nome));
-            $this->info=htmlspecialchars(strip_tags($data->info));
+            $this->email=htmlspecialchars(strip_tags($data->email));
+            $this->usuario=htmlspecialchars(strip_tags($data->usuario));
+            $this->senha=htmlspecialchars(strip_tags($data->senha));
             $this->id=htmlspecialchars(strip_tags($id));
         
             // bind data
             $stmt->bindParam(":nome", $this->nome);
-            $stmt->bindParam(":info", $this->info);
+            $stmt->bindParam(":email", $this->email);
+            $stmt->bindParam(":usuario", $this->usuario);
+            $stmt->bindParam(":senha", $this->senha);
             $stmt->bindParam(":id", $this->id);
         
             if($stmt->execute()){
