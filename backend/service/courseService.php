@@ -13,6 +13,7 @@
         public $id;
         public $nome;
         public $info;
+        public $imagem;
 
         // Db connection
         public function __construct($db){
@@ -21,7 +22,7 @@
 
         // GET ALL
         public function getAll(){
-            $sqlQuery = "SELECT id, nome, info FROM " . $this->db_table . "";
+            $sqlQuery = "SELECT id, nome, info, imagem FROM " . $this->db_table . "";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             $itemCount = $stmt->rowCount();
@@ -36,7 +37,8 @@
                     $e = array(
                         "id" => $id,
                         "nome" => $nome,
-                        "info" => $info
+                        "info" => $info,
+                        "imagem" => $imagem
                     );
 
                     array_push($courseArr["body"], $e);
@@ -49,7 +51,7 @@
 
         // SHOW
         public function retrive($id){
-            $sqlQuery = "SELECT nome, info
+            $sqlQuery = "SELECT nome, info, imagem
                         FROM ". $this->db_table ."
                         WHERE id = ?
                         LIMIT 0,1";
@@ -64,7 +66,8 @@
                 $courseArr["body"] = array();
                 $e = array(
                     "nome" => $dataRow['nome'], 
-                    "info" => $dataRow['info']
+                    "info" => $dataRow['info'],
+                    "imagem" => $dataRow['imagem']
                 ); 
                 array_push($courseArr["body"], $e);
                 return $courseArr;
@@ -79,17 +82,20 @@
                             ". $this->db_table ."
                         SET
                             nome = :nome, 
-                            info = :info";
+                            info = :info,
+                            imagem = imagem";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
             // sanitize
             $this->nome=htmlspecialchars(strip_tags($data->nome));
             $this->info=htmlspecialchars(strip_tags($data->info));
+            $this->imagem=htmlspecialchars(strip_tags($data->imagem));
             
             // bind data
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":info", $this->info);
+            $stmt->bindParam(":info", $this->imagem);
         
             if($stmt->execute()){
                return array("mensagem" => "Criado com sucesso;");
@@ -103,7 +109,8 @@
                         ". $this->db_table ."
                     SET
                         nome = :nome, 
-                        info = :info
+                        info = :info,
+                        imagem = :imagem
                     WHERE 
                         id = :id";
         
@@ -111,11 +118,13 @@
         
             $this->nome=htmlspecialchars(strip_tags($data->nome));
             $this->info=htmlspecialchars(strip_tags($data->info));
+            $this->imagem=htmlspecialchars(strip_tags($data->imagem));
             $this->id=htmlspecialchars(strip_tags($id));
         
             // bind data
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":info", $this->info);
+            $stmt->bindParam(":imagem", $this->imagem);
             $stmt->bindParam(":id", $this->id);
         
             if($stmt->execute()){

@@ -15,6 +15,7 @@
         public $email;
         public $usuario;
         public $senha;
+        public $imagem;
 
         // Db connection
         public function __construct($db){
@@ -23,7 +24,7 @@
 
         // GET ALL
         public function getAll(){
-            $sqlQuery = "SELECT id, nome, email, usuario, senha FROM " . $this->db_table . "";
+            $sqlQuery = "SELECT id, nome, email, usuario, senha, imagem FROM " . $this->db_table . "";
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
             $itemCount = $stmt->rowCount();
@@ -40,7 +41,8 @@
                         "nome" => $nome,
                         "email" => $email,
                         "usuario" => $usuario,
-                        "senha" => $senha
+                        "senha" => $senha,
+                        "imagem" => $imagem
                     );
 
                     array_push($courseArr["body"], $e);
@@ -53,7 +55,7 @@
 
         // SHOW
         public function retrive($id){
-            $sqlQuery = "SELECT id, nome, email, usuario, senha
+            $sqlQuery = "SELECT id, nome, email, usuario, senha, imagem
                         FROM ". $this->db_table ."
                         WHERE id = ?
                         LIMIT 0,1";
@@ -70,7 +72,8 @@
                     "nome" => $dataRow['nome'], 
                     "email" => $dataRow['email'],
                     "usuario" => $dataRow['usuario'],
-                    "senha" => $dataRow['senha']
+                    "senha" => $dataRow['senha'],
+                    "imagem" => $dataRow['imagem']
                 ); 
                 array_push($courseArr["body"], $e);
                 return $courseArr;
@@ -87,7 +90,8 @@
                             nome = :nome, 
                             email = :email, 
                             usuario = :usuario, 
-                            senha = :senha";
+                            senha = :senha,
+                            imagem = :imagem";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
@@ -96,12 +100,14 @@
             $this->email=htmlspecialchars(strip_tags($data->email));
             $this->usuario=htmlspecialchars(strip_tags($data->usuario));
             $this->senha=htmlspecialchars(strip_tags($data->senha));
+            $this->imagem=htmlspecialchars(strip_tags($data->imagem));
             
             // bind data
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":email", $this->email);
             $stmt->bindParam(":usuario", $this->usuario);
             $stmt->bindParam(":senha", $this->senha);
+            $stmt->bindParam(":imagem", $this->imagem);
         
             if($stmt->execute()){
                return array("mensagem" => "Criado com sucesso;");
@@ -117,7 +123,8 @@
                         nome = :nome, 
                         email = :email, 
                         usuario = :usuario, 
-                        senha = :senha
+                        senha = :senha,
+                        imagem = :imagem
                     WHERE 
                         id = :id";
         
@@ -127,6 +134,7 @@
             $this->email=htmlspecialchars(strip_tags($data->email));
             $this->usuario=htmlspecialchars(strip_tags($data->usuario));
             $this->senha=htmlspecialchars(strip_tags($data->senha));
+            $this->imagem=htmlspecialchars(strip_tags($data->imagem));
             $this->id=htmlspecialchars(strip_tags($id));
         
             // bind data
@@ -134,6 +142,7 @@
             $stmt->bindParam(":email", $this->email);
             $stmt->bindParam(":usuario", $this->usuario);
             $stmt->bindParam(":senha", $this->senha);
+            $stmt->bindParam(":imagem", $this->imagem);
             $stmt->bindParam(":id", $this->id);
         
             if($stmt->execute()){
