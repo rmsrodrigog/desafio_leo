@@ -29,10 +29,7 @@
             $stmt->execute();
             $itemCount = $stmt->rowCount();
             if($itemCount > 0){
-                
                 $courseArr = array();
-                $courseArr["body"] = array();
-                $courseArr["itemCount"] = $itemCount;
 
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     extract($row);
@@ -45,7 +42,7 @@
                         "imagem" => $imagem
                     );
 
-                    array_push($courseArr["body"], $e);
+                    array_push($courseArr, $e);
                 }
                 return $courseArr;
             }else{
@@ -67,7 +64,6 @@
             if($itemCount > 0) {
                 $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
                 $courseArr = array();
-                $courseArr["body"] = array();
                 $e = array(
                     "nome" => $dataRow['nome'], 
                     "email" => $dataRow['email'],
@@ -75,7 +71,7 @@
                     "senha" => $dataRow['senha'],
                     "imagem" => $dataRow['imagem']
                 ); 
-                array_push($courseArr["body"], $e);
+                array_push($courseArr, $e);
                 return $courseArr;
             }else{
                 return "Nenhum dado encontrado";
@@ -112,7 +108,7 @@
             if($stmt->execute()){
                return array("mensagem" => "Criado com sucesso;");
             }
-            return array("erro" => "Erro durante a gravação do curso no banco de dados");
+            return array("erro" => "Erro durante a gravação do usuario no banco de dados");
         }
 
         // UPDATE
