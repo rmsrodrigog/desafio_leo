@@ -27,11 +27,7 @@
             $stmt->execute();
             $itemCount = $stmt->rowCount();
             if($itemCount > 0){
-                
                 $courseArr = array();
-                $courseArr["body"] = array();
-                $courseArr["itemCount"] = $itemCount;
-
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     extract($row);
                     $e = array(
@@ -41,7 +37,7 @@
                         "imagem" => $imagem
                     );
 
-                    array_push($courseArr["body"], $e);
+                    array_push($courseArr, $e);
                 }
                 return $courseArr;
             }else{
@@ -63,13 +59,12 @@
             if($itemCount > 0) {
                 $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
                 $courseArr = array();
-                $courseArr["body"] = array();
                 $e = array(
                     "nome" => $dataRow['nome'], 
                     "info" => $dataRow['info'],
                     "imagem" => $dataRow['imagem']
                 ); 
-                array_push($courseArr["body"], $e);
+                array_push($courseArr, $e);
                 return $courseArr;
             }else{
                 return "Nenhum dado encontrado";
@@ -83,7 +78,7 @@
                         SET
                             nome = :nome, 
                             info = :info,
-                            imagem = imagem";
+                            imagem = :imagem";
         
             $stmt = $this->conn->prepare($sqlQuery);
         
@@ -95,7 +90,7 @@
             // bind data
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":info", $this->info);
-            $stmt->bindParam(":info", $this->imagem);
+            $stmt->bindParam(":imagem", $this->imagem);
         
             if($stmt->execute()){
                return array("mensagem" => "Criado com sucesso;");

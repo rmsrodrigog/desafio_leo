@@ -288,7 +288,7 @@ div.modal {
     height: 100%;
 }
 .modal-base {
-    height: 630px;
+    /* height: 630px; */
     background: #fff;
     width: 800px;
     margin: 90px auto;
@@ -348,4 +348,174 @@ button.btn-modal {
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
+}
+
+/*form course */
+.form_course input[type=text], .form_course select, .form_course textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+  
+
+.form_course label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+  }
+  
+.form_course input[type=submit] {
+	background-color: #04AA6D;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: right;
+}
+  
+ 
+
+.form_course .col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 6px;
+}
+  
+
+.form_course .col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+}
+  
+
+.form_course .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+
+@media screen and (max-width: 600px) {
+	.form_course .col-25, .form_usuario .col-75, .form_usuario input[type=submit] {
+	  width: 100%;
+	  margin-top: 0;
+	}
+}
+
+.form_course {
+	padding: 1rem;
+}
+
+/*form_usuario */
+.form_usuario input[type=text], .form_usuario input[type=email], .form_usuario input[type=password], .form_usuario select, .form_usuario textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+  
+
+.form_usuario label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+  }
+  
+.form_usuario input[type=submit] {
+	background-color: #04AA6D;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: right;
+}
+  
+.form_usuario .col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 6px;
+}
+  
+.form_usuario .col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+}
+  
+.form_usuario .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+@media screen and (max-width: 600px) {
+	.form_usuario .col-25, .form_usuario .col-75, .form_usuario input[type=submit] {
+	  width: 100%;
+	  margin-top: 0;
+	}
+}
+
+.form_usuario {
+	padding: 1rem;
+}
+
+/*form_login */
+.form_login input[type=text], .form_login input[type=email], .form_login input[type=password], .form_login select, .form_login textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+  
+
+.form_login label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+  }
+  
+.form_login input[type=submit] {
+	background-color: #04AA6D;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: right;
+}
+  
+.form_login .col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 6px;
+}
+  
+.form_login .col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+}
+  
+.form_login .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+@media screen and (max-width: 600px) {
+	.form_login .col-25, .form_login .col-75, .form_login input[type=submit] {
+	  width: 100%;
+	  margin-top: 0;
+	}
+}
+
+.form_login {
+	padding: 1rem;
 }
