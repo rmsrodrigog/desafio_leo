@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>LEO</title>
+	<!-- Own styles -->
+	<link rel="stylesheet" href="./css/my-css.css">
+	<!-- Swiper Slider slides -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+	/>
+</head>
+<body>
+	<header>
+		<div id="navbar-backgroud">	
+			<div class="container">
+				<nav id="navbar">
+					<div id="nav-logo">
+						<img src="./img/logo-nav.png" alt="Company logo">
+					</div>
+					<div id="nav-search-field">
+						<input type="text" placeholder="Pesquisar cursos...">
+					</div>
+					<div id="nav-profile">
+						<a href="#">
+							<img src="./img/profile.png" alt="Profile image">
+						</a>
+						<h3 id="profile-name">
+							<span id="profile-presentation">Seja bem vindo!</span>
+							<br>
+							Wanderlei
+						</h3>
+						<span id="triangle-dropdown">
+							&#9660;
+						</span>
+						<ul id="drop-down-profile-menu">
+							<li>
+								<a href="#">
+									Editar
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Sair
+								</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>í
+	</header>
+	<main id="content">
+		<section id="slider">
+			<div class="swiper mySwiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="./img/slide-1.jpg" alt="">
+						
+					</div>
+					<div class="swiper-slide">
+						<img src="./img/slide-2.jpg" alt="">
+					</div>
+					<div class="swiper-slide">
+						<img src="./img/slide-3.jpg" alt="">
+					</div>
+				</div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
+		<section id="courses">
+			<div class="container">
+				<h1 id="courses-title">
+					MEUS CURSOS
+				</h1>
+				<div id="courses-grid">
+					<div class="course-card">
+						<div class="course-img">
+							<img src="./img/course.jpg" alt="Course image x">
+						</div>
+						<div class="course-desc">
+							<h2>
+								Curso XPTO
+							</h2>
+							<p>
+								Lorem, ipsum, dolor sit amet consectetur adipisicing elit...
+							</p>
+						</div>
+						<div class="course-view-more">
+							<button class="course-view-more-button">
+								VER CURSO
+							</button>
+						</div>
+					</div>
+					<!-- ADD CARD BUTTON -->
+					<div class="course-card add-course-card">
+						<button onclick="openModal('modal-add-course')">
+							<img src="./img/add-course.png" alt="">
+							<p>ADICIONAR<br>CURSO</p>
+						</button>
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div id="footer-background">
+				<div class="container">
+					<div id="footer-content">	
+						<div id="footer-logo">
+							<img src="./img/logo-footer.png" alt="footer company logo">
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit...</p>
+						</div>
+						<div id="footer-contact">
+							<h4>// CONTATO</h4>
+							<a href="tel:+5521987653434">(21) 98765-3434</a>
+							<a href="mailto:contato@leolearning">contato@leolearning</a>
+						</div>
+						<div id="footer-social-media">
+							<h4>// REDES SOCIAIS</h4>
+							<div id="footer-social-media-itens">
+								<a href="#">
+									<img src="./img/twitter.png" alt="Twitter">
+								</a>
+								<a href="#">
+									<img src="./img/youtube.png" alt="Youtube">
+								</a>
+								<a href="#">
+									<img src="./img/pinterest.png" alt="Pinterest">
+								</a>
+							</div>
+						</div>
+					</div>		
+				</div>
+			</div>
+			<div class="container">
+				<div id="credits">
+					Copyright 2021 - All rights reserved.
+				</div>
+			</div>
+			<!-- Swiper slider -->
+			<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+			<!-- Own scripts -->
+			<script src="./js/my-js.js"></script>
+		</footer>
+	</main>
+	<!-- Modals for sys functions -->
+	<div id="modal-presentation" class="modal">
+		<div class="modal-base">	
+			<button class="close-modal" onclick="closeModal('modal-presentation')">
+				&#10006;
+			</button>
+			<div class="modal-content">	
+				<div class="modal-img-presentation">
+					<img src="./img/modal-presentation.jpg" alt="course image">
+				</div>
+				<div class="modal-briefing">
+					<h2>Lorem ipsum</h2>
+					<p>Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Dignissimos cupiditate quia quae neque officia, temporibus totam consectetur adipisci, omnis enim commodi fugiat reiciendis odio dolorum est suscipit consequatur amet laudantium?</p>
+				</div>
+				<div class="modal-button">
+					<button class="btn-modal">
+						INSCREVA-SE
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="modal-add-course" class="modal">	
+				<div class="modal-base">	
+			<button class="close-modal" onclick="closeModal('modal-add-course')">
+				&#10006;
+			</button>
+			<div class="modal-content">	
+				<form action="#">
+					<input type="text">
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div id="modal-view-course" class="modal">
+		<button class="close-modal">X</button>
+	</div>
+	
+	<div id="modal-update-course" class="modal">	
+		<button class="close-modal">X</button>
+	</div>
+
+	<div id="modal-login" class="modal">	
+		<button class="close-modal">X</button>
+	</div>
+</body>
+</html>
