@@ -3,12 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LEO</title>
+	<title>Desafio LEO</title>
 	<!-- Own styles -->
-	<link rel="stylesheet" href="./css/my-css.css">
+	<link rel="stylesheet" href="./css/my-css.css" />
 	<!-- Swiper Slider slides -->
-	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-	/>
+	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	<!-- js -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="./js/apiController.js"></script>
+	<!-- Swiper slider -->
+	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+	<!-- Own scripts -->
+	<script src="./js/my-js.js"></script>
+	
 </head>
 <body>
 	<header>
@@ -46,6 +53,10 @@
 							</li>
 						</ul>
 					</div>
+					<div id="login">
+						<button id='login' class='bt_login' onclick="openModal('modal-login')">Login</button>
+						<button id='inscrever' class='bt_inscrever' onclick="openModal('modal-inscricao')">Inscrição</button>
+					</div>
 				</nav>
 			</div>
 		</div>í
@@ -56,7 +67,6 @@
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<img src="./img/slide-1.jpg" alt="">
-						
 					</div>
 					<div class="swiper-slide">
 						<img src="./img/slide-2.jpg" alt="">
@@ -76,24 +86,6 @@
 					MEUS CURSOS
 				</h1>
 				<div id="courses-grid">
-					<div class="course-card">
-						<div class="course-img">
-							<img src="./img/course.jpg" alt="Course image x">
-						</div>
-						<div class="course-desc">
-							<h2>
-								Curso XPTO
-							</h2>
-							<p>
-								Lorem, ipsum, dolor sit amet consectetur adipisicing elit...
-							</p>
-						</div>
-						<div class="course-view-more">
-							<button class="course-view-more-button">
-								VER CURSO
-							</button>
-						</div>
-					</div>
 					<!-- ADD CARD BUTTON -->
 					<div class="course-card add-course-card">
 						<button onclick="openModal('modal-add-course')">
@@ -140,10 +132,7 @@
 					Copyright 2021 - All rights reserved.
 				</div>
 			</div>
-			<!-- Swiper slider -->
-			<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-			<!-- Own scripts -->
-			<script src="./js/my-js.js"></script>
+			
 		</footer>
 	</main>
 	<!-- Modals for sys functions -->
@@ -170,28 +159,125 @@
 	</div>
 	
 	<div id="modal-add-course" class="modal">	
-				<div class="modal-base">	
+		<div class="modal-base">	
 			<button class="close-modal" onclick="closeModal('modal-add-course')">
 				&#10006;
 			</button>
 			<div class="modal-content">	
-				<form action="#">
-					<input type="text">
+				<form action="action_page.php" class="form_course">
+					<div class="row">
+					  	<div class="col-25">
+							<label for="nome">Nome do curso: </label>
+					  	</div>
+					  	<div class="col-75">
+							<input type="text" id="nome" name="nome" placeholder="Seu nome..">
+					  	</div>
+					</div>
+					<div class="row">
+					  	<div class="col-25">
+							<label for="novo">Inserir marcação curso novo:</label>
+					  	</div>
+					  	<div class="col-75">
+							<select id="novo" name="novo">
+								<option value="no">Não</option>
+								<option value="yes">Sim</option>
+							</select>
+					  	</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="info">Descrição do curso</label>
+						</div>
+						<div class="col-75">
+							<textarea id="info" name="info" placeholder="Descreva.." style="height:200px"></textarea>
+						</div>
+					</div>
+					<div class="row">
+					  	<input id='createCourse' type="submit" value="Enviar">
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	
-	<div id="modal-view-course" class="modal">
-		<button class="close-modal">X</button>
-	</div>
-	
-	<div id="modal-update-course" class="modal">	
-		<button class="close-modal">X</button>
+
+	<div id="modal-inscricao" class="modal">
+		<div class="modal-base">
+			<button class="close-modal" onclick="closeModal('modal-inscricao')">
+				&#10006;
+			</button>
+			<div class="modal-content">	
+				<form action="action_page.php" class="form_usuario">
+					<div class="row">
+						<div class="col-25">
+							<label for="nome">Nome: </label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="nome" name="nome" placeholder="Seu nome..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="email">Emeail: </label>
+						</div>
+						<div class="col-75">
+							<input type="email" id="email" name="email" placeholder="Seu email..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="usaurio">Usuário: </label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="usaurio" name="usuario" placeholder="Seu usuario..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="senha">Senha: </label>
+						</div>
+						<div class="col-75">
+							<input type="password" id="senha" name="senha">
+						</div>
+					</div>
+					
+					<div class="row">
+						<input id='createCourse' type="submit" value="Enviar">
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 
-	<div id="modal-login" class="modal">	
-		<button class="close-modal">X</button>
+	<div id="modal-login" class="modal">
+		<div class="modal-base">
+			<button class="close-modal" onclick="closeModal('modal-login')">
+				&#10006;
+			</button>
+			<div class="modal-content">	
+				<form action="action_page.php" class="form_login">
+					<div class="row">
+						<div class="col-25">
+							<label for="usaurio">Usuário: </label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="usaurio" name="usuario" placeholder="Seu usuario..">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="senha">Senha: </label>
+						</div>
+						<div class="col-75">
+							<input type="password" id="senha" name="senha">
+						</div>
+					</div>
+					
+					<div class="row">
+						<input id='loginUser' type="submit" value="Enviar">
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
