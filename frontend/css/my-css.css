@@ -588,3 +588,7 @@ div#nav-profile {
     border: 1px solid #000;
     color: #fff;
 }
+
+.course-img img {
+	max-height: 300px;
+}
