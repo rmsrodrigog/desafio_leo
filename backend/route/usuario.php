@@ -19,8 +19,8 @@ if ($uri[4] !== 'usuario.php') {
 }
 
 $getId = null;
-$getId = htmlspecialchars($_GET["id"]);
-$login = htmlspecialchars($_GET["login"]);
+@$getId = htmlspecialchars($_GET["id"]);
+@$login = htmlspecialchars($_GET["login"]);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
