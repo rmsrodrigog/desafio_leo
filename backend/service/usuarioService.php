@@ -80,6 +80,24 @@
 
         // CREATE
         public function create($data){
+            if($data->imagem !== ""){
+                $image = preg_replace('/^data:image\/(\w...);base64,/','',$data->imagem);
+
+                $path = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."desafio_leo".DIRECTORY_SEPARATOR."backend".DIRECTORY_SEPARATOR."images";
+
+                if(!is_dir($path)){
+                    mkdir($path);
+                }
+
+                $randomName =  sha1(microtime()).".png";
+
+                $newFile = fopen($path.DIRECTORY_SEPARATOR.$randomName,"w+");
+                fwrite($newFile, base64_decode($image));
+                fclose($newFile);
+                $this->imagem = $randomName;
+            }else{
+                $this->imagem = "default.png";
+            }
             $sqlQuery = "INSERT INTO
                             ". $this->db_table ."
                         SET
@@ -96,7 +114,6 @@
             $this->email=htmlspecialchars(strip_tags($data->email));
             $this->usuario=htmlspecialchars(strip_tags($data->usuario));
             $this->senha=htmlspecialchars(strip_tags($data->senha));
-            $this->imagem=htmlspecialchars(strip_tags($data->imagem));
             
             // bind data
             $stmt->bindParam(":nome", $this->nome);

@@ -177,7 +177,7 @@
 								<label for="preview">
 									Prévia da imagem
 								</label>
-							<img src="#" id="preview">
+								<img src="#" id="preview">
 								<input type="hidden" name="background-img" id="background-img" value="">
 							</div>
 						</div>
@@ -224,6 +224,23 @@
 			</button>
 			<div class="modal-content">	
 				<form action="action_page.php" class="form_usuario">
+					<div class="row">
+						<div class="col-100">
+							<label for="user_img">
+								Imagem do curso
+							</label>
+							<input type="file" name="user_img" id="user_img" onchange="previewFileUser()">
+						</div>
+						<div class="row">
+							<div class="col-100">
+								<label for="preview">
+									Prévia da imagem
+								</label>
+								<img src="#" id="previewUser">
+								<input type="hidden" name="background-img-user" id="background-img-user" value="">
+							</div>
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-25">
 							<label for="nome">Nome: </label>
