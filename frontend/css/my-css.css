@@ -71,7 +71,7 @@ div#nav-logo {
 }
 
 span#triangle-dropdown {
-    transition: 0.3s linear;
+	transition: 0.3s linear;
 }
 
 ul#drop-down-profile-menu {
@@ -228,126 +228,128 @@ div#courses-grid {
 /*Footer*/
 
 div#footer-content {
-    display: flex;
-    flex-direction: row;
-    padding-top: 30px;
-    align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	padding-top: 30px;
+	align-items: flex-start;
 }
 
 div#footer-logo {
-    width: 60%;
+	width: 60%;
 }
 
 div#footer-background {
-    background: #fff !important;
+	background: #fff !important;
 }
 
 div#footer-contact h4, div#footer-social-media h4 {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 div#footer-contact a {
-    display: inline-block;
-    width: 100%;
-    color: #999999;
-    margin-bottom: 5px;
-    text-decoration: none;
+	display: inline-block;
+	width: 100%;
+	color: #999999;
+	margin-bottom: 5px;
+	text-decoration: none;
 }
 
 div#footer-contact {
-    width: 20%;
+	width: 20%;
 }
 
 div#footer-social-media {
-    width: 20%;
+	width: 20%;
 }
 
 div#footer-social-media-itens a {
-    text-decoration: none;
-    margin-right: 15px;
+	text-decoration: none;
+	margin-right: 15px;
 }
 
 div#credits {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    color: #9A9A9A;
-    font-size: 18px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	color: #9A9A9A;
+	font-size: 18px;
 }
 
 /*Modal*/
 
 div.modal {
 	display: none;
-    position: fixed;
-    background: rgba(1,1,1,0.5);
-    z-index: 999999;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+	position: fixed;
+	background: rgba(1,1,1,0.5);
+	z-index: 999999;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
 }
 .modal-base {
-    /* height: 630px; */
-    background: #fff;
-    width: 800px;
-    margin: 90px auto;
-    position: relative;
-    border-radius: 5px;
+	/* height: 630px; */
+	background: #fff;
+	width: 800px;
+	margin: 90px auto;
+	position: relative;
+	border-radius: 5px;
 }
 
 button.close-modal {
 	cursor: pointer;
-    position: absolute;
-    right: -30px;
-    margin-top: -25px;
-    background: #fff;
-    border: 1px solid;
-    width: 65px;
-    height: 60px;
-    font-size: 30px;
-    font-weight: bold;
-    border-radius: 100%;
+	position: absolute;
+	right: -30px;
+	margin-top: -25px;
+	background: #fff;
+	border: 1px solid;
+	width: 65px;
+	height: 60px;
+	font-size: 30px;
+	font-weight: bold;
+	border-radius: 100%;
 }
 
 .modal-img-presentation img {
-    width: 100%;
-    object-fit: cover;
-    height: 200px;
-    border-radius: 5px 5px 0 0;
+	width: 100%;
+	object-fit: cover;
+	height: 200px;
+	border-radius: 5px 5px 0 0;
 }
 
 .modal-img-presentation {
-    height: 200px;
+	height: 200px;
 }
 
 .modal-briefing {
-    text-align: center;
-    padding: 0px 70px;
+	text-align: center;
+	padding: 0px 70px;
 }
 
 .modal-briefing h2 {
-    font-size: 28px;
+	font-size: 28px;
 }
 
 .modal-briefing p {
-    font-size: 18px;
+	font-size: 18px;
 }
 
 .modal-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
 }
 
 button.btn-modal {
-    width: 40%;
-    border: none;
-    height: 40px;
-    background: #1da2da;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 20px;
+	width: 40%;
+	border: none;
+	height: 40px;
+	background: #1da2da;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	margin-bottom: 60px;
+	cursor: pointer;
 }
 
 /*form course */
@@ -363,8 +365,8 @@ button.btn-modal {
 .form_course label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
-  }
-  
+}
+
 .form_course input[type=submit] {
 	background-color: #04AA6D;
 	color: white;
@@ -374,31 +376,31 @@ button.btn-modal {
 	cursor: pointer;
 	float: right;
 }
-  
+
 .form_course .col-25 {
 	float: left;
 	width: 25%;
 	margin-top: 6px;
 }
-  
+
 .form_course .col-75 {
 	float: left;
 	width: 75%;
 	margin-top: 6px;
 }
-  
+
 
 .form_course .row:after {
 	content: "";
 	display: table;
 	clear: both;
-  }
-  
+}
+
 
 @media screen and (max-width: 600px) {
 	.form_course .col-25, .form_usuario .col-75, .form_usuario input[type=submit] {
-	  width: 100%;
-	  margin-top: 0;
+		width: 100%;
+		margin-top: 0;
 	}
 }
 
@@ -415,13 +417,13 @@ button.btn-modal {
 	box-sizing: border-box;
 	resize: vertical;
 }
-  
+
 
 .form_usuario label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
-  }
-  
+}
+
 .form_usuario input[type=submit] {
 	background-color: #04AA6D;
 	color: white;
@@ -431,29 +433,29 @@ button.btn-modal {
 	cursor: pointer;
 	float: right;
 }
-  
+
 .form_usuario .col-25 {
 	float: left;
 	width: 25%;
 	margin-top: 6px;
 }
-  
+
 .form_usuario .col-75 {
 	float: left;
 	width: 75%;
 	margin-top: 6px;
 }
-  
+
 .form_usuario .row:after {
 	content: "";
 	display: table;
 	clear: both;
-  }
-  
+}
+
 @media screen and (max-width: 600px) {
 	.form_usuario .col-25, .form_usuario .col-75, .form_usuario input[type=submit] {
-	  width: 100%;
-	  margin-top: 0;
+		width: 100%;
+		margin-top: 0;
 	}
 }
 
@@ -470,13 +472,13 @@ button.btn-modal {
 	box-sizing: border-box;
 	resize: vertical;
 }
-  
+
 
 .form_login label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
-  }
-  
+}
+
 .form_login input[type=submit] {
 	background-color: #04AA6D;
 	color: white;
@@ -486,29 +488,29 @@ button.btn-modal {
 	cursor: pointer;
 	float: right;
 }
-  
+
 .form_login .col-25 {
 	float: left;
 	width: 25%;
 	margin-top: 6px;
 }
-  
+
 .form_login .col-75 {
 	float: left;
 	width: 75%;
 	margin-top: 6px;
 }
-  
+
 .form_login .row:after {
 	content: "";
 	display: table;
 	clear: both;
-  }
-  
+}
+
 @media screen and (max-width: 600px) {
 	.form_login .col-25, .form_login .col-75, .form_login input[type=submit] {
-	  width: 100%;
-	  margin-top: 0;
+		width: 100%;
+		margin-top: 0;
 	}
 }
 

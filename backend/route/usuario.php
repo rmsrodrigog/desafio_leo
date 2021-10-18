@@ -1,9 +1,8 @@
 <?php
-//namespace route; 
+require_once('../vendor/autoload.php');
 
-//use config\database; 
-//use controller\courseController;
-include_once('../controller/usuarioController.php');
+use Controller\UsuarioController;
+
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -26,7 +25,7 @@ $login = htmlspecialchars($_GET["login"]);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-$controller = new usuarioController();
+$controller = new UsuarioController();
 
 switch ($requestMethod) {
 	case 'GET':

@@ -1,7 +1,8 @@
 <?php
-    //namespace service;
+namespace Service;
 
-    class usuarioService{
+class UsuarioService
+{
 
         // Connection 
         private $conn;
@@ -31,7 +32,7 @@
             if($itemCount > 0){
                 $courseArr = array();
 
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                     extract($row);
                     $e = array(
                         "id" => $id,
@@ -62,7 +63,7 @@
             $stmt->execute();
             $itemCount = $stmt->rowCount();
             if($itemCount > 0) {
-                $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+                $dataRow = $stmt->fetch(\PDO::FETCH_ASSOC);
                 $courseArr = array();
                 $e = array(
                     "nome" => $dataRow['nome'], 
@@ -193,7 +194,7 @@
             $stmt->execute();
             $itemCount = $stmt->rowCount();
             if($itemCount > 0) {
-                $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+                $dataRow = $stmt->fetch(\PDO::FETCH_ASSOC);
                 if (!password_verify($data->senha, $dataRow['senha']))
                     return false;
                 $courseArr = array();
@@ -208,6 +209,6 @@
             }
         }        
 
-    }
+}
 ?>
 

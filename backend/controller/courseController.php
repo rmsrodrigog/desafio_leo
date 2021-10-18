@@ -1,15 +1,15 @@
 <?php
-    //namespace controller; 
+    namespace Controller;
 
-    //use config\database; 
-    //use service\courseService;
+    use Config\database;
+    use service\courseService;
 
     //var_dump('oi'); die();
 
-    include_once('../config/database.php');
-    include_once('../service/courseService.php');
+    include_once('../config/Database.php');
+    include_once('../service/CourseService.php');
 
-    class courseController 
+    class CourseController
     {
         protected $db;
         protected $servico;
@@ -18,7 +18,7 @@
         public function __construct() {
             $database = new database();
             $this->db = $database->getConnection();
-            $this->servico = new courseService($this->db);
+            $this->servico = new CourseService($this->db);
             $this->data = json_decode(file_get_contents("php://input"));
         }
 

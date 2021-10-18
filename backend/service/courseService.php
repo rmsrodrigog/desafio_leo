@@ -1,7 +1,8 @@
 <?php
-    //namespace service;
+namespace Service;
 
-    class courseService{
+class CourseService
+{
 
         // Connection 
         private $conn;
@@ -28,7 +29,7 @@
             $itemCount = $stmt->rowCount();
             if($itemCount > 0){
                 $courseArr = array();
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                     extract($row);
                     $e = array(
                         "id" => $id,
@@ -57,7 +58,7 @@
             $stmt->execute();
             $itemCount = $stmt->rowCount();
             if($itemCount > 0) {
-                $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+                $dataRow = $stmt->fetch(\PDO::FETCH_ASSOC);
                 $courseArr = array();
                 $e = array(
                     "nome" => $dataRow['nome'], 
@@ -160,6 +161,6 @@
             return array("erro" => "Erro durante a deleção do curso no banco de dados");
         }
 
-    }
+}
 ?>
 
