@@ -22,6 +22,7 @@ if ($uri[4] !== 'usuario.php') {
 
 $getId = null;
 $getId = htmlspecialchars($_GET["id"]);
+$login = htmlspecialchars($_GET["login"]);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
@@ -36,7 +37,11 @@ switch ($requestMethod) {
 		};
 	break;
 	case 'POST':
-		$response = $controller->store();
+		if ($login) {
+			$response = $controller->login();
+		} else {
+			$response = $controller->store();
+		}
 	break;
 	case 'PUT':
 		$response = $controller->update($getId);
