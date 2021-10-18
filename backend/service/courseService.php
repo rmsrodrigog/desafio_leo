@@ -78,7 +78,8 @@ class CourseService
         if($data->imagem !== ""){
             $image = preg_replace('/^data:image\/(\w...);base64,/','',$data->imagem);
 
-            $path = $CFG->imagesPath;
+            //$path = $CFG->imagesPath;
+            $path = '../images';
 
             if(!is_dir($path)){
                 mkdir($path);
