@@ -76,7 +76,7 @@
             if($data->imagem !== ""){
                 $image = preg_replace('/^data:image\/(\w...);base64,/','',$data->imagem);
 
-                $path = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."backend".DIRECTORY_SEPARATOR."images";
+                $path = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."desafio_leo".DIRECTORY_SEPARATOR."backend".DIRECTORY_SEPARATOR."images";
 
                 if(!is_dir($path)){
                     mkdir($path);

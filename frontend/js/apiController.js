@@ -10,7 +10,7 @@ $(document).ready(function()
         }
     });
 
-    var backPath = 'http://localhost:8000/backend/';
+    var backPath = 'http://localhost/desafio_leo/backend/';
 
     document.getElementById('preview').src = backPath+'images/insert-image.png';
 
