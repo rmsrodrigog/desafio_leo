@@ -31,3 +31,21 @@ function previewFile() {
   }
 }
 
+function previewFileUser() {
+  var preview = document.querySelector('img#previewUser');
+  var backgroundImg = document.querySelector('#background-img-user');
+  var file    = document.querySelector('#user_img').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    backgroundImg.value = reader.result;
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
+

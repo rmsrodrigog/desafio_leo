@@ -10,9 +10,10 @@ $(document).ready(function()
         }
     });
 
-    var backPath = 'http://localhost:8000/backend/';
+    var backPath = 'http://localhost/desafio_leo/backend/';
 
     document.getElementById('preview').src = backPath+'images/insert-image.png';
+    document.getElementById('previewUser').src = backPath+'images/insert-image.png';
 
     $.getJSON( backPath + 'route/course.php', function(json) {
         var courseCard=[];
@@ -74,7 +75,7 @@ $(document).ready(function()
         var email = $('#email').val();
         var usuario = $('#usuario').val();
         var senha = $('#senha').val();
-        var imagem = $('#imagem').val();
+        var background = $('#background-img-user').val();
         
         if(nome == null || nome == "") {
             alert("Campo nome é obrigatório");
@@ -100,7 +101,7 @@ $(document).ready(function()
             type: "POST",
             contentType: "application/json; charset=utf-8",
             url: backPath + "route/usuario.php",
-            data: JSON.stringify({'nome': nome, 'email': email, 'usuario': usuario, 'senha': senha}),
+            data: JSON.stringify({'nome': nome, 'email': email, 'usuario': usuario, 'senha': senha, 'imagem': background}),
             cache: false,
             success: function(result) {
                 console.log(result);
@@ -150,60 +151,6 @@ $(document).ready(function()
         });
     });
 
-    /*$(document).delegate('.delete', 'click', function() { 
-        if (confirm('Do you really want to delete record?')) {
-            var id = $(this).attr('id');
-            var parent = $(this).parent().parent();
-            $.ajax({
-                type: "DELETE",
-                url: "http://localhost/php-ajax-jquery-mysql-crud/delete.php?id=" + id,
-                cache: false,
-                success: function() {
-                    parent.fadeOut('slow', function() {
-                        $(this).remove();
-                    });
-                    location.reload(true)
-                },
-                error: function() {
-                    alert('Error deleting record');
-                }
-            });
-        }
-    });
-    
-    $(document).delegate('.edit', 'click', function() {
-        var parent = $(this).parent().parent();
-        
-        var id = parent.children("td:nth-child(1)");
-        var name = parent.children("td:nth-child(2)");
-        var buttons = parent.children("td:nth-child(3)");
-        
-        name.html("<input type='text' id='txtName' value='" + name.html() + "'/>");
-        buttons.html("<button id='save'>Save</button>&nbsp;&nbsp;<button class='delete' id='" + id.html() + "'>Delete</button>");
-    });
-    
-    $(document).delegate('#save', 'click', function() {
-        var parent = $(this).parent().parent();
-        
-        var id = parent.children("td:nth-child(1)");
-        var name = parent.children("td:nth-child(2)");
-        var buttons = parent.children("td:nth-child(3)");
-        
-        $.ajax({
-            type: "PUT",
-            contentType: "application/json; charset=utf-8",
-            url: "http://localhost/php-ajax-jquery-mysql-crud/update.php",
-            data: JSON.stringify({'id' : id.html(), 'name' : name.children("input[type=text]").val()}),
-            cache: false,
-            success: function() {
-                name.html(name.children("input[type=text]").val());
-                buttons.html("<button class='edit' id='" + id.html() + "'>Edit</button>&nbsp;&nbsp;<button class='delete' id='" + id.html() + "'>Delete</button>");
-            },
-            error: function() {
-                alert('Error updating record');
-            }
-        });
-    });*/
 
     $("#hide").click(function(){
         $("p").hide();
