@@ -17,7 +17,7 @@ $(document).ready(function()
         }
     });
 
-    var backPath = 'http://localhost:8000/backend/';
+    var backPath = 'http://localhost/desafio_leo/backend/';
 
     document.getElementById('preview').src = backPath+'images/insert-image.png';
     document.getElementById('previewUser').src = backPath+'images/insert-image.png';
@@ -113,7 +113,12 @@ $(document).ready(function()
             success: function(result) {
                 console.log(result);
                 alert('Usuario criado com sucesso');
-                location.reload(true);
+                $("#login").hide();
+                $("#nav-profile").show();
+                $("#profileImage").attr("src",result[0].imagem);
+                $("#profileName").prepend(result[0].nome);
+                $("#modal-inscricao").hide();
+                //location.reload(true);
             },
             error: function(err) {
                 alert(err);
@@ -145,9 +150,15 @@ $(document).ready(function()
             cache: false,
             success: function(result) {
                 console.log(result);
+                console.log(result[0].nome);
                 if(result != false) {
                     alert('Bem-vindo');
-                    location.reload(true);
+                    //location.reload(true);
+                    $("#login").hide();
+                    $("#nav-profile").show();
+                    $("#profileImage").attr("src",result[0].imagem);
+                    $("#profileName").prepend(result[0].nome);
+                    $("#modal-login").hide();
                 }else{
                     alert('Usuario ou senha incorretos');  
                 }
@@ -156,15 +167,6 @@ $(document).ready(function()
                 alert(err);
             }
         });
-    });
-
-
-    $("#hide").click(function(){
-        $("p").hide();
-    });
-    
-    $("#show").click(function(){
-        $("p").show();
     });
 
 });

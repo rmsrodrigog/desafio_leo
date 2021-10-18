@@ -24,12 +24,12 @@ function getCookie(cname) {
   return "";
 }
 
-function openModal(popupId){
+function openModal(popupId) {
   let popup = document.getElementById(popupId);
   popup.style.display = 'block';
 }
 
-function closeModal(popupId){
+function closeModal(popupId) {
   let popup = document.getElementById(popupId);
   popup.style.display = 'none';
 }
@@ -39,7 +39,7 @@ var backgroundImageUrl;
 function previewFile() {
   var preview = document.querySelector('img#preview');
   var backgroundImg = document.querySelector('#background-img');
-  var file    = document.querySelector('input[type=file]').files[0];
+  var file    = document.querySelector('#couse_img').files[0];
   var reader  = new FileReader();
 
   reader.onloadend = function () {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 	<meta charset="utf-8">
@@ -30,12 +30,12 @@
 					</div>
 					<div id="nav-profile">
 						<a href="#">
-							<img src="./img/profile.png" alt="Profile image">
+							<img src="./img/profile.png" alt="Profile image" id='profileImage'>
 						</a>
 						<h3 id="profile-name">
 							<span id="profile-presentation">Seja bem vindo!</span>
 							<br>
-							Wanderlei
+							<span id='profileName'></span>
 						</h3>
 						<span id="triangle-dropdown">
 							&#9660;
@@ -53,7 +53,7 @@
 							</li>
 						</ul>
 					</div>
-					<div id="login">
+					<div id="login" class='login'>
 						<button id='login' class='bt_login' onclick="openModal('modal-login')">Login</button>
 						<button id='inscrever' class='bt_inscrever' onclick="openModal('modal-inscricao')">Inscrição</button>
 					</div>

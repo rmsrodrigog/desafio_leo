@@ -1,10 +1,7 @@
 <?php
-
-    namespace Controller;
-
-    use Config\Database;
-    use Service\UsuarioService;
-
+    require_once('../config.php');
+    include_once('../config/database.php');
+    include_once('../service/usuarioService.php');
     class UsuarioController
     {
         protected $db;
@@ -12,6 +9,7 @@
         protected $data;
 
         public function __construct() {
+            global $CFG;
             $database = new database();
             $this->db = $database->getConnection();
             $this->servico = new UsuarioService($this->db);
