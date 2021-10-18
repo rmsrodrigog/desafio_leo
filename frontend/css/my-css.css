@@ -537,37 +537,54 @@ div#nav-profile {
 }
 
 .login {
-	
+	width: 40%;
 }
 
 .bt_login {
-	display: flex;
+	display: inline-block;
 	padding: 15px;
 	margin: 0 auto;
-	height: 15px;
-	width: 80%;
+	/*height: 15px;*/
+	width: 40%;
 	background: #01A02A;
 	border: 1px solid #01A02A;
-	border-radius: 30px;
-	text-align: center;
+	/*border-radius: 30px;*/
+	/*text-align: center;*/
 	color: #fff;
-	justify-content: center;
+	/*justify-content: center;*/
 	cursor: pointer;
 	align-items: center;
+	margin-top: 0.5rem;
 }
 
 .bt_inscrever {
-	display: flex;
+	display: inline-block;
 	padding: 15px;
 	margin: 0 auto;
-	height: 15px;
-	width: 80%;
+	/*height: 15px;*/
+	width: 40%;
 	background: #01A02A;
 	border: 1px solid #01A02A;
-	border-radius: 30px;
-	text-align: center;
+	/*border-radius: 30px;*/
+	/*text-align: center;*/
 	color: #fff;
-	justify-content: center;
+	/*justify-content: center;*/
 	cursor: pointer;
 	align-items: center;
+	margin-top: 0.5rem;
+}
+
+.bt_inscrever:hover, .bt_login:hover, .course-view-more-button:hover {
+	background: #018822;
+}
+
+.swiper-text {
+    position: absolute;
+    padding: 0.5rem;
+    margin-right: 70%;
+	width: 20rem;
+    height: 80%;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #000;
+    color: #fff;
 }

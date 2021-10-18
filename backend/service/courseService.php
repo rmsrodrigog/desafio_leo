@@ -42,7 +42,7 @@ class CourseService
             }
             return $courseArr;
         }else{
-            return "Nenhum dado encontrado";
+            return false;
         }
     }
 
