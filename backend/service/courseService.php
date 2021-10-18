@@ -73,6 +73,24 @@
 
         // CREATE
         public function create($data){
+            if($data->imagem !== ""){
+                $image = preg_replace('/^data:image\/(\w...);base64,/','',$data->imagem);
+
+                $path = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."backend".DIRECTORY_SEPARATOR."images";
+
+                if(!is_dir($path)){
+                    mkdir($path);
+                }
+
+                $randomName =  sha1(microtime()).".png";
+
+                $newFile = fopen($path.DIRECTORY_SEPARATOR.$randomName,"w+");
+                fwrite($newFile, base64_decode($image));
+                fclose($newFile);
+                $this->imagem = $randomName;
+            }else{
+                $this->imagem = "default.png";
+            }
             $sqlQuery = "INSERT INTO
                             ". $this->db_table ."
                         SET
@@ -85,13 +103,12 @@
             // sanitize
             $this->nome=htmlspecialchars(strip_tags($data->nome));
             $this->info=htmlspecialchars(strip_tags($data->info));
-            $this->imagem=htmlspecialchars(strip_tags($data->imagem));
-            
+
             // bind data
             $stmt->bindParam(":nome", $this->nome);
             $stmt->bindParam(":info", $this->info);
             $stmt->bindParam(":imagem", $this->imagem);
-        
+
             if($stmt->execute()){
                return array("mensagem" => "Criado com sucesso;");
             }

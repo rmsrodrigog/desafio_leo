@@ -519,3 +519,9 @@ button.btn-modal {
 .form_login {
 	padding: 1rem;
 }
+
+/*Form curso*/
+img#preview{
+	width: 300px;
+	max-width: 100%;
+}
