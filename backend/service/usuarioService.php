@@ -162,6 +162,35 @@
             return array("erro" => "Erro durante a deleção do curso no banco de dados");
         }
 
+        public function login($data){
+            $this->usuario=htmlspecialchars(strip_tags($data->usuario));
+            $this->senha=htmlspecialchars(strip_tags($data->senha));
+
+            $sqlQuery = "SELECT id, nome, email, usuario, senha
+                        FROM ". $this->db_table ."
+                        WHERE usuario = :usuario
+                        LIMIT 0,1";
+
+            $stmt = $this->conn->prepare($sqlQuery);
+            $stmt->bindParam(":usuario", $this->usuario);
+            $stmt->execute();
+            $itemCount = $stmt->rowCount();
+            if($itemCount > 0) {
+                $dataRow = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (!password_verify($data->senha, $dataRow['senha']))
+                    return false;
+                $courseArr = array();
+                $e = array(
+                    "nome" => $dataRow['nome'], 
+                    "email" => $dataRow['email']
+                ); 
+                array_push($courseArr, $e);
+                return $courseArr;
+            }else{
+                return false;
+            }
+        }        
+
     }
 ?>
 

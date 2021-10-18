@@ -67,6 +67,17 @@
             }
         }
 
+        public function login() 
+        {
+            try {
+                //$this->data->senha = password_hash($this->data->senha, PASSWORD_DEFAULT);
+                $retornoJson = json_encode($this->servico->login($this->data));
+                return $retornoJson;
+            }catch(Exception $e) {
+                return json_encode(array("error" => "Erro no loguin do usuario:". $e->getMessage()));
+            }
+        }
+
         public function uploadImages()
         {
             $fileName  =  $_FILES['sendimage']['name'];

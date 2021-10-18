@@ -17,7 +17,7 @@ $(document).ready(function()
     $(document).delegate('#createCourse', 'click', function(event) {
         event.preventDefault();
         
-        var nome = $('#nome').val();
+        var nome = $('#nomeCurso').val();
         var info = $('#info').val();
         var novo = $('#novo').val();
         
@@ -53,6 +53,90 @@ $(document).ready(function()
         });
     });
     
+    // USUARIO ---------------------------------------------
+    $(document).delegate('#createUser', 'click', function(event) {
+        event.preventDefault();
+        
+        var nome = $('#nome').val();
+        var email = $('#email').val();
+        var usuario = $('#usuario').val();
+        var senha = $('#senha').val();
+        var imagem = $('#imagem').val();
+        
+        if(nome == null || nome == "") {
+            alert("Campo nome é obrigatório");
+            return;
+        }
+
+        if(email == null || email == "") {
+            alert("Campo email é obrigatório");
+            return;
+        }
+
+        if(usuario == null || usuario == "") {
+            alert("Campo usuario é obrigatório");
+            return;
+        }
+
+        if(senha == null || senha == "") {
+            alert("Campo senha é obrigatório");
+            return;
+        }
+        
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: backPath + "route/usuario.php",
+            data: JSON.stringify({'nome': nome, 'email': email, 'usuario': usuario, 'senha': senha}),
+            cache: false,
+            success: function(result) {
+                console.log(result);
+                alert('Usuario criado com sucesso');
+                location.reload(true);
+            },
+            error: function(err) {
+                alert(err);
+            }
+        });
+    });
+
+    $(document).delegate('#loginUser', 'click', function(event) {
+        event.preventDefault();
+        
+        var usuarioLogin = $('#usuarioLogin').val();
+        var senhaLogin = $('#senhaLogin').val();
+        
+        if(usuarioLogin == null || usuarioLogin == "") {
+            alert("Campo Usuario é obrigatório");
+            return;
+        }
+
+        if(senhaLogin == null || senhaLogin == "") {
+            alert("Campo senha é obrigatório");
+            return;
+        }
+        
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: backPath + "route/usuario.php?login=true",
+            data: JSON.stringify({'usuario': usuarioLogin, 'senha': senhaLogin}),
+            cache: false,
+            success: function(result) {
+                console.log(result);
+                if(result != false) {
+                    alert('Bem-vindo');
+                    location.reload(true);
+                }else{
+                    alert('Usuario ou senha incorretos');  
+                }
+            },
+            error: function(err) {
+                alert(err);
+            }
+        });
+    });
+
     /*$(document).delegate('.delete', 'click', function() { 
         if (confirm('Do you really want to delete record?')) {
             var id = $(this).attr('id');
@@ -107,5 +191,13 @@ $(document).ready(function()
             }
         });
     });*/
+
+    $("#hide").click(function(){
+        $("p").hide();
+    });
+    
+    $("#show").click(function(){
+        $("p").show();
+    });
 
 });
