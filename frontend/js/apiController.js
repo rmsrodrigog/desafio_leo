@@ -1,5 +1,6 @@
 $(document).ready(function() 
 {
+    var backPath = 'http://localhost/desafio_leo/backend/';
 
     let showModalPresentation = getCookie('sawModal');
 
@@ -16,8 +17,6 @@ $(document).ready(function()
             el: ".swiper-pagination"
         }
     });
-
-    var backPath = 'http://localhost/desafio_leo/backend/';
 
     document.getElementById('preview').src = backPath+'images/insert-image.png';
     document.getElementById('previewUser').src = backPath+'images/insert-image.png';
