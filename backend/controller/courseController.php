@@ -1,11 +1,7 @@
 <?php
-    namespace Controller;
-
-    use Config\Database;
-    use Service\CourseService;
-
-    include_once('../config/Database.php');
-    include_once('../service/CourseService.php');
+    require_once('../config.php');
+    include_once('../config/database.php');
+    include_once('../service/courseService.php');
 
     class CourseController
     {
@@ -14,7 +10,7 @@
         protected $data;
 
         public function __construct() {
-            $database = new database();
+            $database = new Database();
             $this->db = $database->getConnection();
             $this->servico = new CourseService($this->db);
             $this->data = json_decode(file_get_contents("php://input"));

@@ -1,8 +1,7 @@
 <?php
-require_once('../vendor/autoload.php');
 
-use Controller\UsuarioController;
-
+require_once('../config.php');
+include_once('../controller/usuarioController.php');
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");

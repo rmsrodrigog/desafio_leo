@@ -1,4 +1,6 @@
 body{
+	font-family: roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: #545454e6;
 	background: #efefef;
 	margin: 0;
 }
@@ -157,24 +159,25 @@ div#nav-profile:hover #triangle-dropdown {
 h1#courses-title {
 	margin: 40px 0px 40px 0px;
 	padding-bottom: 10px;
-	border-bottom: 1px solid;
-	color: #545454;
+	border-bottom: 1px solid #5454543b;
+	color: #545454bf;
 }
 
 .course-card {
-	margin-right: 30px;
-	width: 290px;
-	height: 401px;
-	background: #fff;
-	border-radius: 5px;
-	margin-bottom: 40px;
-	box-shadow: 0px 2px 5px;
+	margin-right: 18px;
+    width: 300px;
+    height: 360px;
+    background: #fff;
+    border-radius: 3px;
+    margin-bottom: 40px;
+    box-shadow: #9a9a9a47 1px 1px 3px 0px;
 }
 
 .course-img img {
 	object-fit: contain !important;
 	width: 100%;
-	border-radius: 5px 5px 0 0;
+	border-radius: 3px 3px 0 0;
+    border: none;
 }
 
 .course-desc {
@@ -527,4 +530,44 @@ img#preview{
 img#previewUser{
 	width: 300px;
 	max-width: 100%;
+}
+
+div#nav-profile {
+	display: none;
+}
+
+.login {
+	
+}
+
+.bt_login {
+	display: flex;
+	padding: 15px;
+	margin: 0 auto;
+	height: 15px;
+	width: 80%;
+	background: #01A02A;
+	border: 1px solid #01A02A;
+	border-radius: 30px;
+	text-align: center;
+	color: #fff;
+	justify-content: center;
+	cursor: pointer;
+	align-items: center;
+}
+
+.bt_inscrever {
+	display: flex;
+	padding: 15px;
+	margin: 0 auto;
+	height: 15px;
+	width: 80%;
+	background: #01A02A;
+	border: 1px solid #01A02A;
+	border-radius: 30px;
+	text-align: center;
+	color: #fff;
+	justify-content: center;
+	cursor: pointer;
+	align-items: center;
 }

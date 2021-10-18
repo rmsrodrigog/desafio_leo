@@ -1,4 +1,5 @@
 Desafio LEO Learning
+
 Orientações
 Para o desenvolvimento do projeto deverá ser criado um repositório na conta do bitbucket ou github do candidato com o seguinte nome "desafio_leo"(ex.: http://bitbucket.org/seu_nome/desafio_leo).
 O desafio deve ser armazenado em seu respectivo repositório.
@@ -7,12 +8,13 @@ No README deverá ter as informações do desenvolvedor e do projeto.
 Ao finalizar, enviar e-mail para plataforma@leolearning.com com a url do seu repositório, com o assunto [Desafio LEO] - Finalizado.
 Mesmo que não tenha finalizado por completo, pode nos enviar como finalizado ao fim do prazo. Temos várias linhas de avaliação.
 Dê mais atenção a sua melhor skill.
-Front-end
+
+<h3>Front-end</h3>
 O layout deverá respeitar um determinado grid com base no layout e ser acessível em resoluções menores, ex.: notebooks, tablets e smartphones. O markup deve ser desenvolvido utilizando HTML5, CSS (sass/less), JS (livre para usar libs, mas seria interessante criar do zero) e automatizador de tarefas (gulp/grunt).
 
 obs: Os layouts estão no repositório.
 
-Back-end
+<h3>Back-end</h3>
 Deve ser realizado o CRUD para: * Cursos. * Imagens, título, descrição e link do botão do Slideshow.
 
 Modal
