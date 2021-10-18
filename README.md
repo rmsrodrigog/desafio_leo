@@ -1,6 +1,6 @@
 <h1>Desafio LEO Learning</h1>
 
-<h2>Informações do desenvolvedor e instalação<h2>
+<h2>Informações do desenvolvedor e instalação</h2>
 
 <h3>Desenvolvedor</h3>
 <strong>Nome:</strong>Rodrigo Fernandes Gonzales<br />
