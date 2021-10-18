@@ -1,5 +1,12 @@
 $(document).ready(function() 
 {
+
+    let showModalPresentation = getCookie('sawModal');
+
+    if(showModalPresentation == ""){
+        openModal('modal-presentation')
+    }
+
     var swiper = new Swiper(".mySwiper", {
         navigation: {
             nextEl: ".swiper-button-next",
@@ -10,7 +17,7 @@ $(document).ready(function()
         }
     });
 
-    var backPath = 'http://localhost/desafio_leo/backend/';
+    var backPath = 'http://localhost:8000/backend/';
 
     document.getElementById('preview').src = backPath+'images/insert-image.png';
     document.getElementById('previewUser').src = backPath+'images/insert-image.png';

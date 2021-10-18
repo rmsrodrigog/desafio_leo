@@ -1,8 +1,11 @@
 <?php
-    include_once('../config/database.php');
-    include_once('../service/usuarioService.php');
 
-    class usuarioController 
+    namespace Controller;
+
+    use Config\Database;
+    use Service\UsuarioService;
+
+    class UsuarioController
     {
         protected $db;
         protected $servico;
@@ -11,7 +14,7 @@
         public function __construct() {
             $database = new database();
             $this->db = $database->getConnection();
-            $this->servico = new usuarioService($this->db);
+            $this->servico = new UsuarioService($this->db);
             $this->data = json_decode(file_get_contents("php://input"));
             //$this->data->image = $this->uploadImages();
         }

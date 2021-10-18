@@ -1,0 +1,20 @@
+{
+    "name": "rmsrodrigog/leo_learning_backend",
+    "description": "Sistema backend para gerenciamento de cursos",
+    "require": {
+        "symfony/dotenv": "^5.3"
+    },
+    "authors": [
+        {
+            "name": "Rodrigo Gonzales",
+            "email": "rmsrodrigog@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Config\\": "config",
+            "Controller\\": "controller",
+            "Service\\": "service"
+        }
+    }
+}

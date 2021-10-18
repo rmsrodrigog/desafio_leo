@@ -1,9 +1,8 @@
 <?php
-//namespace route; 
+require_once('../vendor/autoload.php');
 
-//use config\database; 
-//use controller\courseController;
-include_once('../controller/courseController.php');
+use Controller\CourseController;
+
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -25,7 +24,7 @@ $getId = htmlspecialchars($_GET["id"]);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-$controller = new courseController();
+$controller = new CourseController();
 
 switch ($requestMethod) {
 	case 'GET':
