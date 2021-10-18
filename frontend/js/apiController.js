@@ -1,12 +1,24 @@
 $(document).ready(function() 
-{    
-    var backPath = 'http://localhost/desafio_leo/backend/';
-    
+{
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination"
+        }
+    });
+
+    var backPath = 'http://localhost:8000/backend/';
+
+    document.getElementById('preview').src = backPath+'images/insert-image.png';
+
     $.getJSON( backPath + 'route/course.php', function(json) {
         var courseCard=[];
         for (var i = 0; i < json.length; i++) {
             courseCard.push("<div class='course-card'>");
-            courseCard.push("<div class='course-img'><img src='"+json[i].imagem+"' /></div>");
+            courseCard.push(`<div class='course-img'><img src="${backPath+/images/+json[i].imagem}" /></div>`);
             courseCard.push("<div class='course-desc'><h2>"+json[i].nome+"</h2><p>"+json[i].info+"</p></div>");
             courseCard.push("<div class='course-view-more'><button class='course-view-more-button'>VER CURSO</button></div>");
             courseCard.push("</div>"); 
@@ -20,6 +32,7 @@ $(document).ready(function()
         var nome = $('#nomeCurso').val();
         var info = $('#info').val();
         var novo = $('#novo').val();
+        var background = $('#background-img').val();
         
         if(nome == null || nome == "") {
             alert("Campo nome é obrigatório");
@@ -40,7 +53,7 @@ $(document).ready(function()
             type: "POST",
             contentType: "application/json; charset=utf-8",
             url: backPath + "route/course.php",
-            data: JSON.stringify({'nome': nome, 'info': info, 'novo': novo, 'imagem': 'teste'}),
+            data: JSON.stringify({'nome': nome, 'info': info, 'novo': novo, 'imagem': background}),
             cache: false,
             success: function(result) {
                 console.log(result);

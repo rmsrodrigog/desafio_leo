@@ -157,7 +157,7 @@
 			</div>
 		</div>
 	</div>
-	
+	<!--ADD COURSE-->
 	<div id="modal-add-course" class="modal">	
 		<div class="modal-base">	
 			<button class="close-modal" onclick="closeModal('modal-add-course')">
@@ -165,6 +165,23 @@
 			</button>
 			<div class="modal-content">	
 				<form action="action_page.php" class="form_course">
+					<div class="row">
+						<div class="col-100">
+							<label for="couse_img">
+								Imagem do curso
+							</label>
+							<input type="file" name="couse_img" id="couse_img" onchange="previewFile()">
+						</div>
+						<div class="row">
+							<div class="col-100">
+								<label for="preview">
+									Prévia da imagem
+								</label>
+							<img src="#" id="preview">
+								<input type="hidden" name="background-img" id="background-img" value="">
+							</div>
+						</div>
+					</div>
 					<div class="row">
 					  	<div class="col-25">
 							<label for="nome">Nome do curso: </label>
@@ -199,7 +216,7 @@
 			</div>
 		</div>
 	</div>
-
+	<!--INSCRIÇÃO-->
 	<div id="modal-inscricao" class="modal">
 		<div class="modal-base">
 			<button class="close-modal" onclick="closeModal('modal-inscricao')">
@@ -247,7 +264,7 @@
 			</div>
 		</div>
 	</div>
-
+	<!--LOGIN-->
 	<div id="modal-login" class="modal">
 		<div class="modal-base">
 			<button class="close-modal" onclick="closeModal('modal-login')">

@@ -1,14 +1,4 @@
 // Swiper slider initialization
-var swiper = new Swiper(".mySwiper", {
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination"
-  }
-});
-
 // Popup functions
 
 function openModal(popupId){
@@ -21,4 +11,23 @@ function closeModal(popupId){
   popup.style.display = 'none';
 }
 
+var backgroundImageUrl;
+
+function previewFile() {
+  var preview = document.querySelector('img#preview');
+  var backgroundImg = document.querySelector('#background-img');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    backgroundImg.value = reader.result;
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
 
