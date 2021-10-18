@@ -2,8 +2,8 @@
 
     namespace Controller;
 
-    use config\database;
-    use service\usuarioService;
+    use Config\Database;
+    use Service\UsuarioService;
 
     class UsuarioController
     {

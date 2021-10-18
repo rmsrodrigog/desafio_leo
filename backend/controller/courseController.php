@@ -1,10 +1,8 @@
 <?php
     namespace Controller;
 
-    use Config\database;
-    use service\courseService;
-
-    //var_dump('oi'); die();
+    use Config\Database;
+    use Service\CourseService;
 
     include_once('../config/Database.php');
     include_once('../service/CourseService.php');

@@ -3,7 +3,7 @@
 
     use Symfony\Component\Dotenv\Dotenv;
 
-    class database {
+    class Database {
 
         private $dotenv;
         private $host;
