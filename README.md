@@ -10,7 +10,7 @@
 <strong>Necessário:</strong> php, mysql, servidor web (apache, nginx, php)<br />
 <strong>SQL</strong> Rodar scripts.sql no banco de dados;<br />
 <strong>Config.php</strong> Modificar credenciais de banco de dados e path no arquivo config.php localizado na pasta backend;<br />
-<strong>apiController.php</strong> Modificar variavel "backPath" no arquivo apiController.php que se encontra dentro do frontend.
+<strong>apiController.php</strong> Modificar variavel "backPath" no arquivo apiController.js que se encontra dentro do frontend na pasta js.
 
 <h2>Orientações</h2>
 Para o desenvolvimento do projeto deverá ser criado um repositório na conta do bitbucket ou github do candidato com o seguinte nome "desafio_leo"(ex.: http://bitbucket.org/seu_nome/desafio_leo).<br />

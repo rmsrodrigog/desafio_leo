@@ -19,7 +19,7 @@ if ($uri[4] !== 'course.php') {
 }
 
 $getId = null;
-$getId = htmlspecialchars($_GET["id"]);
+@$getId = htmlspecialchars($_GET["id"]);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
